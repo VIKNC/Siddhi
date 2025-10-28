@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siddhi Mahatole | Journalist, Washington D.C.</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header */
+        .header {
+            margin-bottom: 60px;
+        }
+
+        .intro {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+            .intro a {
+                color: #333;
+                text-decoration: underline;
+            }
+
+                .intro a:hover {
+                    color: #666;
+                }
+
+        .name {
+            font-weight: bold;
+            color: #000;
+        }
+
+        /* Navigation */
+        .nav {
+            margin: 40px 0;
+            font-size: 16px;
+        }
+
+            .nav a {
+                color: #333;
+                text-decoration: underline;
+                margin-right: 15px;
+            }
+
+                .nav a:hover {
+                    color: #666;
+                }
+
+        /* Section Titles */
+        .section-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 50px 0 30px 0;
+            color: #000;
+        }
+
+        /* Bylines Grid */
+        .bylines-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .byline-card {
+            border: 1px solid #e0e0e0;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            background: #fff;
+        }
+
+            .byline-card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            }
+
+        .byline-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #f5f5f5, #e8e8e8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #666;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .byline-content {
+            padding: 20px;
+        }
+
+        .byline-publication {
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: #666;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .byline-title {
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 1.4;
+            color: #000;
+            margin-bottom: 10px;
+        }
+
+        .byline-excerpt {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .byline-card a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Featured Work */
+        .featured-work {
+            margin: 50px 0;
+        }
+
+        .featured-item {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #eee;
+        }
+
+            .featured-item:last-child {
+                border-bottom: none;
+            }
+
+        .featured-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #f5f5f5, #e8e8e8);
+            margin-bottom: 20px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .featured-publication {
+            font-size: 14px;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: #666;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .featured-title {
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 1.4;
+            margin-bottom: 15px;
+        }
+
+            .featured-title a {
+                color: #000;
+                text-decoration: none;
+            }
+
+                .featured-title a:hover {
+                    text-decoration: underline;
+                }
+
+        .featured-excerpt {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* About Section */
+        .about {
+            margin: 60px 0;
+            font-size: 16px;
+            line-height: 1.7;
+            color: #555;
+        }
+
+            .about h3 {
+                font-size: 20px;
+                color: #000;
+                margin-bottom: 20px;
+            }
+
+        /* Contact Section */
+        .contact {
+            margin: 60px 0;
+            padding: 30px 0;
+            border-top: 1px solid #eee;
+        }
+
+        .contact-info {
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+            .contact-info a {
+                color: #333;
+                text-decoration: underline;
+            }
+
+                .contact-info a:hover {
+                    color: #666;
+                }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+
+            .intro {
+                font-size: 16px;
+            }
+
+            .bylines-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .section-title {
+                font-size: 20px;
+            }
+
+            .featured-title {
+                font-size: 18px;
+            }
+        }
+
+        /* Upload Card Styles */
+        .upload-card {
+            border: 2px dashed #ccc;
+            padding: 30px;
+            text-align: center;
+            background: #fafafa;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+            .upload-card:hover {
+                border-color: #999;
+                background: #f0f0f0;
+            }
+
+            .upload-card.dragover {
+                border-color: #666;
+                background: #e8e8e8;
+            }
+
+        .upload-icon {
+            font-size: 48px;
+            color: #999;
+            margin-bottom: 15px;
+        }
+
+        .upload-text {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .upload-subtext {
+            font-size: 14px;
+            color: #999;
+        }
+
+        #file-input {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="intro">
+                hi, i'm <span class="name">siddhi mahatole</span><br><br>
+                I'm a journalist and <a href="#" target="_blank">Fulbright Scholar</a> currently working as a correspondent at <a href="#" target="_blank">Reuters News</a>, covering the U.S. health and pharmaceutical industry. Previously, I've worked for <a href="#" target="_blank">The Washington Post</a>, <a href="#" target="_blank">Voice of America</a>, <a href="#" target="_blank">International Business Times</a>, and contributed to Pulitzer-winning investigations.<br><br>
+                I'm interested in stories at the intersections of health policy, investigative journalism, data-driven reporting, and accountability – stories that reveal how systems impact people's lives.<br><br>
+                Check out some of my work below, or <a href="mailto:siddhimahatole@gmail.com">get in touch</a> if you want to collaborate or chat!
+            </div>
+
+            <div class="nav">
+                <a href="#stories">my stories</a>
+                <a href="#about">about</a>
+                <a href="#contact">contact</a>
+                <a href="https://www.linkedin.com/in/siddhi-mahatole/" target="_blank">linkedin</a>
+            </div>
+        </div>
+
+        <!-- Featured Work -->
+        <div class="featured-work">
+            <div class="featured-item">
+                <div class="featured-image" style="background-image: url('https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&h=300&fit=crop');"></div>
+                <div class="featured-publication">Reuters News</div>
+                <h2 class="featured-title">
+                    <a href="#" target="_blank">Health and Pharmaceutical Industry Coverage</a>
+                </h2>
+                <p class="featured-excerpt">
+                    Current correspondent covering U.S. health and pharmaceutical industry, writing news updates related to stock market movements and conducting interviews with industry analysts. Focused on FDA and CDC policy developments and their market implications.
+                </p>
+            </div>
+
+            <div class="featured-item">
+                <div class="featured-image" style="background-image: url('https://images.unsplash.com/photo-1495020689067-958852a7765e?w=800&h=300&fit=crop');"></div>
+                <div class="featured-publication">The Washington Post</div>
+                <h2 class="featured-title">
+                    <a href="#" target="_blank">Pulitzer-Winning Database Investigation</a>
+                </h2>
+                <p class="featured-excerpt">
+                    Contributed to The Washington Post's Fatal Force database investigation, analyzing police-involved shootings across the United States. Part of the investigative "Abused by the badge" series, utilizing court documents and FOIA requests to ensure accuracy and accountability in law enforcement reporting.
+                </p>
+            </div>
+
+            <div class="featured-item">
+                <div class="featured-image" style="background-image: url('https://images.unsplash.com/photo-1523995462485-3d171b5c8fa9?w=800&h=300&fit=crop');"></div>
+                <div class="featured-publication">International Business Times</div>
+                <h2 class="featured-title">
+                    <a href="#" target="_blank">Higher Education Reporting</a>
+                </h2>
+                <p class="featured-excerpt">
+                    Generated more than 200 news stories focusing on university news and higher education reporting across the United States, managing content through advanced CMS systems and ensuring timely, accurate coverage of educational policy and campus developments.
+                </p>
+            </div>
+        </div>
+
+        <!-- Bylines Section -->
+        <div id="stories">
+            <h2 class="section-title">What I have been working on</h2>
+
+            <div class="bylines-grid" id="bylines-container">
+
+                <!-- use this code to upload new bylines okay?
+
+
+                    <div class="byline-card">
+        <a href="STORY_URL_HERE" target="_blank">
+            <div class="byline-image" style="background-image: url('IMAGE_URL_HERE');">
+                <div style="background: rgba(0,0,0,0.3); color: white; padding: 10px; position: absolute; bottom: 0; left: 0; right: 0; font-size: 12px;">📰</div>
+            </div>
+            <div class="byline-content">
+                <div class="byline-publication">PUBLICATION_NAME</div>
+                <h3 class="byline-title">STORY_TITLE</h3>
+                <p class="byline-excerpt">STORY_DESCRIPTION</p>
+            </div>
+        </a>
+    </div>
+
+                    NOW WHAT YOU NEED TO DO IS-
+                    1. COPY IT
+                    2.PAST IT BEFORE THE BELOW CODE AND AFTER THE GREEN TEXT (THE EMPTY SPACE)
+                    3. REPLACE THE STORY_URL_HERE, IMAGE_URL_HERE, PUBLICATION_NAME, STORY_TITLE, AND STORY_DESCRIPTION WITH YOUR OWN VALUES
+                    4. SAVE THE FILE
+                    5. OPEN THE FILE IN YOUR BROWSER
+                    6. YOU WILL SEE YOUR BYLINE CARD APPEAR IN THE GRID
+                    7. REPEAT STEPS 1-6 FOR EACH BYLINE YOU WANT TO ADD
+                    8. MAKE SURE TO KEEP THE HTML STRUCTURE INTACT
+                    9. DO NOT DELETE OR MODIFY THE EXISTING BYLINE CARDS UNLESS YOU WANT TO REMOVE THEM
+                    10. IF YOU WANT TO ADD MORE BYLINE CARDS, JUST COPY AND PASTE THE TEMPLATE AGAIN
+                    -->
+                <!-- Sample bylines - these will be populated dynamically -->
+
+                <div class="byline-card">
+                    <a href="https://www-voanews-com.cdn.ampproject.org/c/s/www.voanews.com/amp/taliban-use-license-suspensions-arrests-closures-to-pressure-media-in-afghanistan/7743020.html" target="_blank">
+                        <div class="byline-image" style="background-image: url('https://gdb-voanews-com.cdn.ampproject.org/i/s/gdb.voanews.com/01000000-0aff-0242-a796-08dcbca81174_w1080_h608_s.jpg');">
+                            <div style="background: rgba(0,0,0,0.3); color: white; padding: 10px; position: absolute; bottom: 0; left: 0; right: 0; font-size: 12px;">📰</div>
+                        </div>
+                        <div class="byline-content">
+                            <div class="byline-publication">Voice of America</div>
+                            <h3 class="byline-title">Taliban use license suspensions, arrests, closures to pressure media in Afghanistan</h3>
+                            <p class="byline-excerpt">The suspension of broadcast licenses, arrests and closures of news outlets in Afghanistan show that the Taliban continue to exert pressure on media, watchdogs say.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="byline-card">
+                    <a href="#" target="_blank">
+                        <div class="byline-image" style="background-image: url('https://images.unsplash.com/photo-1586339949916-3e9457bef6d3?w=400&h=200&fit=crop');">
+                            <div style="background: rgba(0,0,0,0.3); color: white; padding: 10px; position: absolute; bottom: 0; left: 0; right: 0; font-size: 12px;">📊</div>
+                        </div>
+                        <div class="byline-content">
+                            <div class="byline-publication">Reuters</div>
+                            <h3 class="byline-title">Pharmaceutical Market Analysis</h3>
+                            <p class="byline-excerpt">In-depth coverage of recent FDA approvals and their impact on stock market movements in the healthcare sector...</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="byline-card">
+                    <a href="#" target="_blank">
+                        <div class="byline-image" style="background-image: url('https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=400&h=200&fit=crop');">
+                            <div style="background: rgba(0,0,0,0.3); color: white; padding: 10px; position: absolute; bottom: 0; left: 0; right: 0; font-size: 12px;">🔍</div>
+                        </div>
+                        <div class="byline-content">
+                            <div class="byline-publication">Voice of America</div>
+                            <h3 class="byline-title">Press Freedom Investigation</h3>
+                            <p class="byline-excerpt">Investigative piece examining press freedom challenges and their impact on democracy and public discourse...</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="byline-card">
+                    <a href="#" target="_blank">
+                        <div class="byline-image" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=200&fit=crop');">
+                            <div style="background: rgba(0,0,0,0.3); color: white; padding: 10px; position: absolute; bottom: 0; left: 0; right: 0; font-size: 12px;">🎓</div>
+                        </div>
+                        <div class="byline-content">
+                            <div class="byline-publication">International Business Times</div>
+                            <h3 class="byline-title">Higher Education Policy Update</h3>
+                            <p class="byline-excerpt">Comprehensive coverage of recent changes in federal education policy and their implications for universities...</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <div id="about" class="about">
+            <h3>About</h3>
+            <p>I'm a journalist and Fulbright Scholar with expertise in investigative reporting, data-driven journalism, and health policy coverage. Currently based in the Washington D.C. area, I work as a correspondent for Reuters News covering the pharmaceutical and healthcare industries.</p>
+
+            <p>My work has contributed to Pulitzer Prize-winning investigations at The Washington Post, where I helped maintain and update critical databases tracking police-involved incidents. I've also worked with Voice of America on press freedom issues and generated extensive coverage of higher education policy for International Business Times.</p>
+
+            <p>I hold a Master's degree in Journalism and Public Affairs from American University and completed my Fulbright exchange program at West Liberty University, where I achieved Dean's List distinction. I'm fluent in English, Hindi, and Marathi, bringing a global perspective to my reporting.</p>
+
+            <p><strong>Skills:</strong> Investigative journalism, data analysis, Reuters Terminal, FOIA requests, court document analysis, multilingual reporting, stock market coverage, healthcare policy, database management, social media strategy.</p>
+        </div>
+
+        <!-- Contact Section -->
+        <div id="contact" class="contact">
+            <div class="contact-info">
+                <a href="mailto:siddhimahatole@gmail.com">get in touch</a> if you want to collaborate, or let's chat!<br><br>
+
+                view my <a href="#" target="_blank">resume</a>, read <a href="#stories">the stories i've written</a>, and <a href="https://www.linkedin.com/in/siddhi-mahatole/" target="_blank">follow me on linkedin</a> for updates<br><br>
+
+                <strong>Location:</strong> Washington, D.C. Area
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
